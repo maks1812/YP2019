@@ -1,0 +1,145 @@
+:root {
+  box-sizing: border-box;
+
+  --dark: #282c34;
+  --dark-hover: #1d2025;
+  --white: #f1ffdd;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.btn,
+.input {
+  border: none;
+  background-color: transparent;
+}
+.btn {
+  cursor: pointer;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 650px) {
+  .container {
+    width: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+/*==== Header ====*/
+.header {
+  padding: 1.5em 0;
+  background-color: var(--dark);
+}
+
+.search-box__btn,
+.search-box__inp,
+.search-box__inp::placeholder {
+  color: var(--white);
+}
+.search-box__inp {
+  font-size: 1.1em;
+  padding: 0.5em;
+}
+
+.header__logo {
+  flex: 1 1;
+  text-align: center;
+  color: #61dafb;
+}
+@media screen and (max-width: 650px) {
+  .header__logo {
+    display: none;
+  }
+}
+
+.header__sign-in {
+  padding: 0.5em 1em;
+  color: #190000;
+  background-color: #61dafb;
+  transition: background-color 100ms linear;
+}
+.header__sign-in:hover {
+  background-color: #fff;
+}
+
+
+/*==== Slider ====*/
+.slider-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 0.3em 0.3em;
+  align-items: center;
+  margin: 1em auto;
+}
+
+.slider__img {
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 75ms linear;
+}
+.slider__img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 3px 
+}
+
+.slider__btn {
+  position: absolute;
+  z-index: 1;
+  font-size: 2em;
+  color: var(--dark);
+  transform: translateY(-50%);
+}
+.slider__btn:hover {
+  text-shadow: 0 0 3px var(--dark-hover);
+}
+.slider__btn--right {
+  right: 0;
+}
+
+.slider__add-image {
+  align-self: center;
+  justify-self: center;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  font-size: 2em;
+  color: var(--white);
+  background-color: var(--dark);
+  transition: background-color 100ms linear;
+}
+.slider__add-image:hover {
+  background-color: var(--dark-hover);
+}
+
+
+/*==== Footer ====*/
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  justify-content: center;
+  width: 100%;
+  padding: 1em 0;
+  color: var(--white);
+  background-color: var(--dark);
+}
