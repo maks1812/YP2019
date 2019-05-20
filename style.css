@@ -82,55 +82,98 @@
 
 
 /*==== Slider ====*/
-.slider-container {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 0.3em 0.3em;
-  align-items: center;
-  margin: 1em auto;
+.slider {
+  padding: 1em 0;
+  background-color: #c0cde7;
 }
 
-.slider__img {
-  width: 100%;
-  object-fit: cover;
-  cursor: pointer;
-  transition: transform 75ms linear;
-}
-.slider__img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 3px 
+.slider-container {
+  position: relative;
 }
 
 .slider__btn {
   position: absolute;
+  top: 50%;
   z-index: 1;
   font-size: 2em;
-  color: var(--dark);
   transform: translateY(-50%);
 }
-.slider__btn:hover {
-  text-shadow: 0 0 3px var(--dark-hover);
+.slider__btn--left {
+  left: 0;
 }
 .slider__btn--right {
   right: 0;
 }
 
-.slider__add-image {
-  align-self: center;
-  justify-self: center;
-  width: 50%;
-  height: 50%;
-  border-radius: 50%;
-  font-size: 2em;
-  color: var(--white);
-  background-color: var(--dark);
-  transition: background-color 100ms linear;
-}
-.slider__add-image:hover {
-  background-color: var(--dark-hover);
+.slide {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 0.3em 0.3em;
+  align-items: center;
 }
 
+.slide__item {
+  position: relative;
+  overflow: hidden;
+}
+.slide__item__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+  transition: transform 250ms linear;
+}
+.slide__item__info {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 1;
+  padding: 0.2em;
+  color: #fff;
+  transition: top 250ms linear;
+}
+.slide__item__btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  color: rgb(218, 25, 25);
+  transform: translate(-50%, -50%);
+  transition: opacity 250ms linear,
+              color 250ms linear;
+}
+.slide__item__btn:hover {
+  color: red;
+}
+.slide__item__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  transition: baclground-color 250ms linear;
+}
+.slide__item:hover > .slide__item__info {
+  top: 0;
+}
+.slide__item:hover > .slide__item__btn {
+  opacity: 1;
+}
+.slide__item:hover > .slide__item__image {
+  transform: scale(1.02);
+}
+.slide__item:hover > .slide__item__overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slide__add-image {
+  font-size: 3rem;
+}
 
 /*==== Footer ====*/
 .footer {
