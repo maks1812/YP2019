@@ -1,0 +1,2 @@
+SELECT pname
+FROM USER
